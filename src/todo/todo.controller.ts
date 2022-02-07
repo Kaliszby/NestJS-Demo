@@ -7,7 +7,7 @@ export class TodoController {
 
   @Get()
   getTodos() {
-    return [1, 2, 3, 4];
+    return this.todoService.getTodos();
   }
 
   @Post()
