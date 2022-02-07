@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Delete, Param } from '@nestjs/common';
 
 @Controller('todo')
 export class TodoController {
@@ -10,5 +10,11 @@ export class TodoController {
   @Post()
   postTodos(@Body('title') title: string, @Body('subtitle') subtitle: string) {
     console.log(`title: ${title}, subtitle: ${subtitle}`);
+  }
+
+  @Delete('/:id')
+  deleteTodoByID(@Param('id') id: string) {
+    console.log(`id: ${id}`);
+    return `id: ${id}`;
   }
 }
